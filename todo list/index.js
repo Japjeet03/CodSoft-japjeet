@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     storedTasks.forEach(function (taskText) {
         addTask(taskText);
     });
--
+
     addTaskButton.addEventListener("click", function () {
         const taskText = taskInput.value.trim();
 
@@ -20,16 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     taskList.addEventListener("click", function (event) {
-        if (event.target.classList.contains("delete-task"))
+        if (event.target.classList.contains("delete-task")) {
             const listItem = event.target.closest("li");
             taskList.removeChild(listItem);
             saveTasksToLocalStorage();
         }
     });
 
-    function addTask(taskText) {                                  
+    function addTask(taskText) {
         const listItem = document.createElement("li");
-        listItem.innerHTML = `  
+        listItem.innerHTML = `
             <span>${taskText}</span>
             <button class="delete-task btn btn-outline-danger">Delete</button>
         `;
